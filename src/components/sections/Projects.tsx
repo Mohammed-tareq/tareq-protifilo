@@ -197,7 +197,7 @@ function ProjectCard({ p, i, flipped, onFlip }: { p: Project; i: number; flipped
             </div>
 
             <div className="mt-6 flex items-center gap-3">
-              <a href="https://github.com" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-xs transition-colors hover:border-cyan hover:text-cyan">
+              <a href={p.repo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-xs transition-colors hover:border-cyan hover:text-cyan">
                 <Github size={12} /> Code
               </a>
               <button
