@@ -104,11 +104,6 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     overflow-x: hidden;
-    cursor: none;
-  }
-
-  @media (max-width: 768px) {
-    body { cursor: auto; }
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -186,10 +181,7 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  .interactive { cursor: none; }
-  @media (max-width: 768px) {
-    .interactive { cursor: pointer; }
-  }
+  .interactive { cursor: pointer; }
 
   /* Magnetic button base */
   .btn-shine {
