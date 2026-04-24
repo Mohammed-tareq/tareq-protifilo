@@ -61,7 +61,7 @@ export function About() {
           >
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl glass animate-pulse-glow">
               <video
-                src={portraitVideo.url}
+                src={portraitVideo}
                 poster={portrait}
                 autoPlay
                 loop
