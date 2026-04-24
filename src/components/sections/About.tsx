@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Code2, Zap, Layers, Rocket } from "lucide-react";
 import portrait from "@/assets/mohammed-tareq.jpg";
+import portraitVideo from "@/assets/mohammed-tareq.mp4.asset.json";
 
 function Counter({ end, suffix = "", duration = 1500 }: { end: number; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -59,11 +60,16 @@ export function About() {
             className="relative mx-auto w-full max-w-sm"
           >
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl glass animate-pulse-glow">
-              <img
-                src={portrait}
-                alt="Mohammed Tareq — Laravel Developer based in Cairo, Egypt"
+              <video
+                src={portraitVideo.url}
+                poster={portrait}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
                 className="absolute inset-0 h-full w-full object-cover"
-                loading="lazy"
+                aria-label="Animated portrait of Mohammed Tareq"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between font-mono text-[10px] uppercase tracking-wider text-cyan">
