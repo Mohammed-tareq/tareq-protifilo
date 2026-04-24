@@ -1,53 +1,65 @@
-import { createRouter, useRouter } from "@tanstack/react-router";
+import { createRouter, useRouter, Link } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
+import { Home, RefreshCw, Flame } from "lucide-react";
 
 function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-destructive/10">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8 text-destructive"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
-            />
-          </svg>
+    <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-background px-4">
+      <div className="absolute inset-0 bg-mesh opacity-50" />
+      <div className="absolute -top-40 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-destructive/20 blur-[120px] animate-pulse-glow" />
+      <div className="absolute inset-0 grid-bg opacity-20" />
+
+      <div className="relative z-10 max-w-2xl text-center">
+        <div className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-2xl border border-destructive/40 bg-destructive/10">
+          <Flame className="text-destructive animate-pulse" size={36} />
         </div>
-        <h1 className="text-2xl font-bold tracking-tight text-foreground">Something went wrong</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          An unexpected error occurred. Please try again.
+        <h1
+          className="font-display text-[8rem] font-bold leading-none md:text-[12rem]"
+          style={{
+            background: "linear-gradient(135deg, oklch(0.78 0.16 75), oklch(0.6 0.24 25))",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}
+        >
+          500
+        </h1>
+        <h2 className="mt-2 font-display text-2xl font-semibold md:text-3xl">
+          Internal Server Error — Even Laravel throws exceptions sometimes.
+        </h2>
+        <p className="mt-3 font-mono text-sm text-muted-foreground">
+          I'm on it. Try refreshing or come back soon.
         </p>
-        {import.meta.env.DEV && error.message && (
-          <pre className="mt-4 max-h-40 overflow-auto rounded-md bg-muted p-3 text-left font-mono text-xs text-destructive">
+
+        {/* Faux progress */}
+        <div className="mx-auto mt-6 max-w-sm">
+          <div className="mb-2 flex justify-between font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+            <span>Fixing the bug</span>
+            <span className="text-cyan">67%</span>
+          </div>
+          <div className="h-1.5 overflow-hidden rounded-full bg-border">
+            <div className="h-full w-2/3 animate-pulse rounded-full" style={{ background: "linear-gradient(90deg, oklch(0.78 0.16 75), oklch(0.6 0.24 25))" }} />
+          </div>
+        </div>
+
+        {error?.message && (
+          <pre className="mx-auto mt-6 max-h-32 max-w-md overflow-auto rounded-xl border border-destructive/30 bg-destructive/5 p-3 text-left font-mono text-[11px] text-destructive">
             {error.message}
           </pre>
         )}
-        <div className="mt-6 flex items-center justify-center gap-3">
+
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
           <button
-            onClick={() => {
-              router.invalidate();
-              reset();
-            }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            onClick={() => { router.invalidate(); reset(); }}
+            className="btn-shine inline-flex items-center gap-2 rounded-full bg-aurora px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-105"
           >
-            Try again
+            <RefreshCw size={16} /> Try again
           </button>
-          <a
-            href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-          >
-            Go home
-          </a>
+          <Link to="/" className="inline-flex items-center gap-2 rounded-full border border-border bg-card/40 px-6 py-3 text-sm transition-colors hover:border-cyan hover:text-cyan">
+            <Home size={16} /> Go home
+          </Link>
         </div>
       </div>
     </div>
