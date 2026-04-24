@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Code2, Zap, Layers, Rocket } from "lucide-react";
+import portrait from "@/assets/mohammed-tareq.jpg";
 
 function Counter({ end, suffix = "", duration = 1500 }: { end: number; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -58,15 +59,16 @@ export function About() {
             className="relative mx-auto w-full max-w-sm"
           >
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl glass animate-pulse-glow">
-              <div className="absolute inset-0 bg-aurora opacity-20" />
-              <div className="absolute inset-0 grid-bg opacity-40" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="mx-auto mb-4 flex h-32 w-32 items-center justify-center rounded-full bg-aurora font-display text-5xl font-bold text-background">
-                    MT
-                  </div>
-                  <p className="font-mono text-xs text-muted-foreground">~/cairo/egypt</p>
-                </div>
+              <img
+                src={portrait}
+                alt="Mohammed Tareq — Laravel Developer based in Cairo, Egypt"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between font-mono text-[10px] uppercase tracking-wider text-cyan">
+                <span>~/cairo/egypt</span>
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan" />
               </div>
               {/* corner accents */}
               <div className="absolute left-3 top-3 h-6 w-6 border-l-2 border-t-2 border-cyan" />

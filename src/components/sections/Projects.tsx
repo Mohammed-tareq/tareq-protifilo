@@ -11,9 +11,12 @@ export type Project = {
   desc: string;
   features: string[];
   stack: string[];
+  repo: string;
   featured?: boolean;
   accent: "violet" | "cyan" | "gold";
 };
+
+const GH = "https://github.com/MohammedTareq";
 
 export const projects: Project[] = [
   {
@@ -29,6 +32,7 @@ export const projects: Project[] = [
       "Redis caching + server-side DataTables",
     ],
     stack: ["Laravel 12", "PHP 8.2", "Livewire 3.7", "Tailwind 4", "Alpine.js", "MySQL", "Redis"],
+    repo: `${GH}?tab=repositories&q=ecommerce`,
     featured: true,
     accent: "violet",
   },
@@ -40,6 +44,7 @@ export const projects: Project[] = [
     desc: "Real-time point-of-sale with inventory sync, 2FA, PDF receipts and live sales analytics.",
     features: ["Real-time inventory sync", "2FA via Fortify", "PDF receipt generation", "Sales analytics dashboard"],
     stack: ["Laravel 12", "Filament 4", "Livewire 3", "Tailwind 4", "Fortify", "Vite"],
+    repo: `${GH}?tab=repositories&q=pos`,
     accent: "cyan",
   },
   {
@@ -50,6 +55,7 @@ export const projects: Project[] = [
     desc: "SEO-optimized blog with real-time notifications via Pusher, Redis caching and clean RBAC.",
     features: ["Real-time notifications (Pusher)", "Redis caching", "SEO optimized", "Role-based access"],
     stack: ["Laravel", "MySQL", "Redis", "Bootstrap", "AJAX", "Pusher"],
+    repo: `${GH}?tab=repositories&q=blog`,
     accent: "gold",
   },
   {
@@ -60,6 +66,7 @@ export const projects: Project[] = [
     desc: "Appointment booking with separate doctor/patient portals, Stripe payments and advanced search.",
     features: ["Doctor & patient portals", "Stripe payments", "Search by specialty", "Schedule management"],
     stack: ["Laravel", "MySQL", "Stripe API", "Bootstrap"],
+    repo: `${GH}?tab=repositories&q=doctor`,
     accent: "violet",
   },
 ];
@@ -113,7 +120,7 @@ export function Projects() {
 
         <div className="mt-12 flex justify-center">
           <a
-            href="https://github.com"
+            href={`${GH}?tab=repositories`}
             target="_blank"
             rel="noreferrer"
             className="group inline-flex items-center gap-2 rounded-full border border-border bg-card/40 px-6 py-3 text-sm font-medium transition-all hover:border-cyan hover:text-cyan"
@@ -190,7 +197,7 @@ function ProjectCard({ p, i, flipped, onFlip }: { p: Project; i: number; flipped
             </div>
 
             <div className="mt-6 flex items-center gap-3">
-              <a href="https://github.com" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-xs transition-colors hover:border-cyan hover:text-cyan">
+              <a href={p.repo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-xs transition-colors hover:border-cyan hover:text-cyan">
                 <Github size={12} /> Code
               </a>
               <button
