@@ -1,11 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "framer-motion";
-import { Download, Eye, Link as LinkIcon, ArrowLeft, FileText, Calendar, Briefcase } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Download, Eye, Link as LinkIcon, ArrowLeft, FileText, Calendar, Briefcase, X } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { ParticleField } from "@/components/ParticleField";
 import { toast } from "sonner";
 import { Magnetic } from "@/components/Magnetic";
+
+const CV_URL = "/Mohammed_Tareq_CV.pdf";
+const CV_FILENAME = "Mohammed_Tareq_CV.pdf";
 
 export const Route = createFileRoute("/download")({
   head: () => ({
@@ -51,17 +54,26 @@ function Confetti({ show }: { show: boolean }) {
 
 function DownloadPage() {
   const [confetti, setConfetti] = useState(false);
+  const [viewerOpen, setViewerOpen] = useState(false);
 
   const handleDownload = () => {
     setConfetti(true);
     toast.success("Download started! Thanks for your interest.");
     setTimeout(() => setConfetti(false), 1700);
+    // Trigger actual download
+    const a = document.createElement("a");
+    a.href = CV_URL;
+    a.download = CV_FILENAME;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   };
 
   const copyLink = () => {
     if (typeof window !== "undefined") {
-      navigator.clipboard?.writeText(window.location.href);
-      toast.success("Link copied to clipboard!");
+      const url = new URL(CV_URL, window.location.origin).toString();
+      navigator.clipboard?.writeText(url);
+      toast.success("CV link copied to clipboard!");
     }
   };
 
@@ -143,19 +155,23 @@ function DownloadPage() {
 
             <div className="mt-8 space-y-3">
               <Magnetic strength={0.2}>
-                <a
-                  href="#"
-                  onClick={(e) => { e.preventDefault(); handleDownload(); }}
+                <button
+                  type="button"
+                  onClick={handleDownload}
                   className="btn-shine relative flex w-full animate-pulse-glow items-center justify-center gap-3 overflow-hidden rounded-2xl bg-aurora px-8 py-5 font-display text-lg font-semibold text-background transition-transform hover:scale-[1.02]"
                 >
                   <Download size={22} /> Download CV — PDF
-                </a>
+                </button>
               </Magnetic>
 
               <div className="flex gap-3">
-                <a href="#" target="_blank" rel="noreferrer" className="flex flex-1 items-center justify-center gap-2 rounded-2xl border border-border bg-card/40 px-5 py-3 text-sm transition-colors hover:border-cyan hover:text-cyan">
+                <button
+                  type="button"
+                  onClick={() => setViewerOpen(true)}
+                  className="flex flex-1 items-center justify-center gap-2 rounded-2xl border border-border bg-card/40 px-5 py-3 text-sm transition-colors hover:border-cyan hover:text-cyan"
+                >
                   <Eye size={16} /> View Online
-                </a>
+                </button>
                 <button onClick={copyLink} className="flex flex-1 items-center justify-center gap-2 rounded-2xl border border-border bg-card/40 px-5 py-3 text-sm transition-colors hover:border-cyan hover:text-cyan">
                   <LinkIcon size={16} /> Copy Link
                 </button>
@@ -168,6 +184,53 @@ function DownloadPage() {
           </motion.div>
         </div>
       </div>
+
+      <AnimatePresence>
+        {viewerOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-background/90 p-4 backdrop-blur-md md:p-8"
+            onClick={() => setViewerOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 20 }}
+              transition={{ type: "spring", damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative flex h-full max-h-[92vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-cyan/30 bg-card shadow-[0_40px_120px_-20px_oklch(0.85_0.18_200_/_25%)]"
+            >
+              <div className="flex items-center justify-between border-b border-border bg-card/80 px-5 py-3 backdrop-blur">
+                <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-cyan">
+                  <FileText size={14} /> Mohammed_Tareq_CV.pdf
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={handleDownload}
+                    className="hidden items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs transition-colors hover:border-cyan hover:text-cyan sm:inline-flex"
+                  >
+                    <Download size={12} /> Download
+                  </button>
+                  <button
+                    onClick={() => setViewerOpen(false)}
+                    aria-label="Close viewer"
+                    className="rounded-full border border-border p-2 transition-colors hover:border-cyan hover:text-cyan"
+                  >
+                    <X size={14} />
+                  </button>
+                </div>
+              </div>
+              <iframe
+                title="Mohammed Tareq CV"
+                src={`${CV_URL}#view=FitH`}
+                className="h-full w-full flex-1 bg-background"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
