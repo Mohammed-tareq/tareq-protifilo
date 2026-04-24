@@ -31,8 +31,8 @@ export function Footer() {
           <h4 className="mb-4 font-display text-sm uppercase tracking-widest text-cyan">Connect</h4>
           <div className="flex gap-3">
             {[
-              { Icon: Github, href: "https://github.com" },
-              { Icon: Linkedin, href: "https://linkedin.com" },
+              { Icon: Github, href: "https://github.com/Mohammed-tareq?tab=repositories" },
+              { Icon: Linkedin, href: "https://www.linkedin.com/in/mohammed-t-603177250/" },
               { Icon: Mail, href: "mailto:mohtareq1999m@gmail.com" },
             ].map(({ Icon, href }, i) => (
               <a

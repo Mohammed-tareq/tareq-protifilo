@@ -16,7 +16,7 @@ export type Project = {
   accent: "violet" | "cyan" | "gold";
 };
 
-const GH = "https://github.com/MohammedTareq";
+const GH = "https://github.com/Mohammed-tareq";
 
 export const projects: Project[] = [
   {
@@ -32,7 +32,7 @@ export const projects: Project[] = [
       "Redis caching + server-side DataTables",
     ],
     stack: ["Laravel 12", "PHP 8.2", "Livewire 3.7", "Tailwind 4", "Alpine.js", "MySQL", "Redis"],
-    repo: `${GH}?tab=repositories&q=ecommerce`,
+    repo: "https://github.com/Mohammed-tareq/E-commerce",
     featured: true,
     accent: "violet",
   },
@@ -44,7 +44,7 @@ export const projects: Project[] = [
     desc: "Real-time point-of-sale with inventory sync, 2FA, PDF receipts and live sales analytics.",
     features: ["Real-time inventory sync", "2FA via Fortify", "PDF receipt generation", "Sales analytics dashboard"],
     stack: ["Laravel 12", "Filament 4", "Livewire 3", "Tailwind 4", "Fortify", "Vite"],
-    repo: `${GH}?tab=repositories&q=pos`,
+    repo: "https://github.com/Mohammed-tareq/laravel-pos",
     accent: "cyan",
   },
   {
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     desc: "SEO-optimized blog with real-time notifications via Pusher, Redis caching and clean RBAC.",
     features: ["Real-time notifications (Pusher)", "Redis caching", "SEO optimized", "Role-based access"],
     stack: ["Laravel", "MySQL", "Redis", "Bootstrap", "AJAX", "Pusher"],
-    repo: `${GH}?tab=repositories&q=blog`,
+    repo: "https://github.com/Mohammed-tareq/blog",
     accent: "gold",
   },
   {
@@ -66,7 +66,7 @@ export const projects: Project[] = [
     desc: "Appointment booking with separate doctor/patient portals, Stripe payments and advanced search.",
     features: ["Doctor & patient portals", "Stripe payments", "Search by specialty", "Schedule management"],
     stack: ["Laravel", "MySQL", "Stripe API", "Bootstrap"],
-    repo: `${GH}?tab=repositories&q=doctor`,
+    repo: "https://github.com/Mohammed-tareq/DocCure",
     accent: "violet",
   },
 ];

@@ -136,8 +136,8 @@ export function Hero() {
             className="mt-10 flex items-center gap-4"
           >
             {[
-              { Icon: Github, href: "https://github.com/MohammedTareq", label: "GitHub" },
-              { Icon: Linkedin, href: "https://www.linkedin.com/in/mohammed-tareq", label: "LinkedIn" },
+              { Icon: Github, href: "https://github.com/Mohammed-tareq?tab=repositories", label: "GitHub" },
+              { Icon: Linkedin, href: "https://www.linkedin.com/in/mohammed-t-603177250/", label: "LinkedIn" },
               { Icon: Mail, href: "mailto:mohtareq1999m@gmail.com", label: "Email" },
               { Icon: Phone, href: "tel:+201151410813", label: "Phone" },
             ].map(({ Icon, href, label }) => (
