@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Code2, Zap, Layers, Rocket } from "lucide-react";
 import portrait from "@/assets/mohammed-tareq-anime.jpg";
-import portraitVideo from "@/assets/mohammed-tareq.mp4.asset.json";
+import portraitVideo from "@/assets/mohammed-tareq.mp4";
 
 function Counter({ end, suffix = "", duration = 1500 }: { end: number; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
