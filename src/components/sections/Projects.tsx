@@ -190,9 +190,6 @@ function ProjectCard({ p, i, flipped, onFlip }: { p: Project; i: number; flipped
             </div>
 
             <div className="mt-6 flex items-center gap-3">
-              <a href="#" className={`inline-flex items-center gap-1.5 rounded-full bg-aurora px-4 py-2 text-xs font-medium text-background transition-transform hover:scale-105`}>
-                <ExternalLink size={12} /> Live Demo
-              </a>
               <a href="https://github.com" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-xs transition-colors hover:border-cyan hover:text-cyan">
                 <Github size={12} /> Code
               </a>

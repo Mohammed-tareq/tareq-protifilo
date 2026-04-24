@@ -113,9 +113,6 @@ function DetailCard({ p, i }: { p: Project; i: number }) {
             ))}
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
-            <a href="#" className="inline-flex items-center gap-2 rounded-full bg-aurora px-4 py-2 text-xs font-medium text-background transition-transform hover:scale-105">
-              <ExternalLink size={12} /> Live Demo
-            </a>
             <a href="https://github.com" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-xs hover:border-cyan hover:text-cyan">
               <Github size={12} /> Code
             </a>
