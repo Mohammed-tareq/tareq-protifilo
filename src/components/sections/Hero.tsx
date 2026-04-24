@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Download, Github, Linkedin, Mail, Sparkles } from "lucide-react";
+import { ArrowDown, Download, Github, Linkedin, Mail, Phone, Sparkles } from "lucide-react";
 import { Magnetic } from "../Magnetic";
 import { Link } from "@tanstack/react-router";
 
@@ -136,9 +136,10 @@ export function Hero() {
             className="mt-10 flex items-center gap-4"
           >
             {[
-              { Icon: Github, href: "https://github.com", label: "GitHub" },
-              { Icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+              { Icon: Github, href: "https://github.com/MohammedTareq", label: "GitHub" },
+              { Icon: Linkedin, href: "https://www.linkedin.com/in/mohammed-tareq", label: "LinkedIn" },
               { Icon: Mail, href: "mailto:mohtareq1999m@gmail.com", label: "Email" },
+              { Icon: Phone, href: "tel:+201151410813", label: "Phone" },
             ].map(({ Icon, href, label }) => (
               <a
                 key={label}
