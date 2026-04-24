@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Download, Github, Linkedin, Mail, Sparkles } from "lucide-react";
-import { Magnetic } from "./Magnetic";
+import { Magnetic } from "../Magnetic";
 import { Link } from "@tanstack/react-router";
 
 const roles = ["Laravel Developer", "Full-Stack Engineer", "PHP Artisan", "API Architect"];
