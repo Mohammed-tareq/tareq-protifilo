@@ -1,4 +1,10 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { Toaster } from "sonner";
+import { CustomCursor } from "@/components/CustomCursor";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { Preloader } from "@/components/Preloader";
 
 import appCss from "../styles.css?url";
 
