@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { ExternalLink, Github, Calendar, Layers } from "lucide-react";
+import { Github, Calendar, Layers } from "lucide-react";
 import { projects, type Project } from "@/components/sections/Projects";
 import { ParticleField } from "@/components/ParticleField";
 
