@@ -23,6 +23,8 @@ export function Footer() {
             <li><a href="#about" className="hover:text-foreground">About</a></li>
             <li><a href="#skills" className="hover:text-foreground">Skills</a></li>
             <li><a href="#projects" className="hover:text-foreground">Projects</a></li>
+            <li><a href="#certifications" className="hover:text-foreground">Certs</a></li>
+            <li><a href="#timeline" className="hover:text-foreground">Experience</a></li>
             <li><Link to="/download" className="hover:text-foreground">Resume</Link></li>
           </ul>
         </div>
