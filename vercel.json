@@ -8,5 +8,11 @@
   "regions": ["iad1"],
   "git": {
     "deploymentEnabled": true
-  }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
 }
