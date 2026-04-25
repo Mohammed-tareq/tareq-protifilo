@@ -51,6 +51,7 @@ export function Navbar() {
               { href: "#about", label: "About" },
               { href: "#skills", label: "Skills" },
               { href: "#projects", label: "Projects" },
+              { href: "#certifications", label: "Certs" },
               { href: "#timeline", label: "Experience" },
               { href: "#contact", label: "Contact" },
             ].map((l) => (
@@ -109,6 +110,7 @@ export function Navbar() {
             { href: "#about", label: "About" },
             { href: "#skills", label: "Skills" },
             { href: "#projects", label: "Projects" },
+            { href: "#certifications", label: "Certs" },
             { href: "#timeline", label: "Experience" },
             { href: "#contact", label: "Contact" },
           ].map((l) => (
