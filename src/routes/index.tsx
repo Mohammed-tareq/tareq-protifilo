@@ -11,9 +11,17 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Mohammed Tareq — Laravel Developer & Full-Stack Engineer" },
-      { name: "description", content: "Cairo-based Laravel & Full-Stack engineer building enterprise platforms with Livewire, Filament, Redis & MySQL." },
+      {
+        name: "description",
+        content:
+          "Cairo-based Laravel & Full-Stack engineer building enterprise platforms with Livewire, Filament, Redis & MySQL.",
+      },
       { property: "og:title", content: "Mohammed Tareq — Laravel Developer" },
-      { property: "og:description", content: "Enterprise Laravel platforms: e-commerce, POS, real-time systems with clean architecture." },
+      {
+        property: "og:description",
+        content:
+          "Enterprise Laravel platforms: e-commerce, POS, real-time systems with clean architecture.",
+      },
     ],
   }),
   component: Index,

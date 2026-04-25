@@ -1,10 +1,20 @@
 import { useEffect, useRef } from "react";
 
 interface Particle {
-  x: number; y: number; vx: number; vy: number; r: number;
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  r: number;
 }
 
-export function ParticleField({ density = 70, className = "" }: { density?: number; className?: string }) {
+export function ParticleField({
+  density = 70,
+  className = "",
+}: {
+  density?: number;
+  className?: string;
+}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -34,10 +44,15 @@ export function ParticleField({ density = 70, className = "" }: { density?: numb
       mouse.x = e.clientX - rect.left;
       mouse.y = e.clientY - rect.top;
     };
-    const onLeave = () => { mouse.x = -1000; mouse.y = -1000; };
+    const onLeave = () => {
+      mouse.x = -1000;
+      mouse.y = -1000;
+    };
     const onResize = () => {
-      width = canvas.offsetWidth; height = canvas.offsetHeight;
-      canvas.width = width * dpr; canvas.height = height * dpr;
+      width = canvas.offsetWidth;
+      height = canvas.offsetHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
       ctx.scale(dpr, dpr);
     };
     canvas.addEventListener("mousemove", onMove);
@@ -49,7 +64,8 @@ export function ParticleField({ density = 70, className = "" }: { density?: numb
       ctx.clearRect(0, 0, width, height);
 
       particles.forEach((p) => {
-        p.x += p.vx; p.y += p.vy;
+        p.x += p.vx;
+        p.y += p.vy;
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
 
@@ -57,8 +73,8 @@ export function ParticleField({ density = 70, className = "" }: { density?: numb
         const dy = mouse.y - p.y;
         const dist = Math.hypot(dx, dy);
         if (dist < 130) {
-          p.x -= dx / dist * 0.6;
-          p.y -= dy / dist * 0.6;
+          p.x -= (dx / dist) * 0.6;
+          p.y -= (dy / dist) * 0.6;
         }
 
         ctx.beginPath();
@@ -69,7 +85,8 @@ export function ParticleField({ density = 70, className = "" }: { density?: numb
 
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
-          const a = particles[i], b = particles[j];
+          const a = particles[i],
+            b = particles[j];
           const d = Math.hypot(a.x - b.x, a.y - b.y);
           if (d < 120) {
             ctx.beginPath();

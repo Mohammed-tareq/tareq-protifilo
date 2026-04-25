@@ -2,12 +2,48 @@ import { motion } from "framer-motion";
 import { SectionLabel } from "./About";
 
 const events = [
-  { year: "2025", title: "ITI Training", subtitle: "Full-Stack PHP Laravel Development", desc: "Intensive professional program covering modern Laravel 12, advanced architecture and team workflows.", tags: ["Laravel 12", "Livewire", "Filament"] },
-  { year: "2024", title: "POS System + E-Commerce", subtitle: "Active production builds", desc: "Shipping enterprise-grade systems with real-time inventory, RBAC, OTP auth and multi-language RTL.", tags: ["Laravel", "Filament", "Redis"] },
-  { year: "2024", title: "WE Telecom Training", subtitle: "Full-Stack PHP Laravel", desc: "Hands-on backend specialization with real-world project cycles.", tags: ["PHP 8", "MySQL", "REST"] },
-  { year: "2023", title: "B.Sc. Graduation", subtitle: "Computer & Software Engineering — MUST", desc: "Misr University for Science and Technology. Foundations in CS, software engineering and systems.", tags: ["CS", "Engineering"] },
-  { year: "2023", title: "Blog + Doctor Booking System", subtitle: "Full-stack production projects", desc: "Real-time Pusher notifications, Stripe payments, RBAC, SEO and clean architecture.", tags: ["Laravel", "Stripe", "Pusher"] },
-  { year: "2023", title: "Self-driven mastery", subtitle: "Modern PHP 8 + Front-End — Udemy", desc: "Deep dive into PHP 8 features, OOP patterns, and modern front-end fundamentals.", tags: ["PHP 8", "JS", "CSS"] },
+  {
+    year: "2025",
+    title: "ITI Training",
+    subtitle: "Full-Stack PHP Laravel Development",
+    desc: "Intensive professional program covering modern Laravel 12, advanced architecture and team workflows.",
+    tags: ["Laravel 12", "Livewire", "Filament"],
+  },
+  {
+    year: "2024",
+    title: "POS System + E-Commerce",
+    subtitle: "Active production builds",
+    desc: "Shipping enterprise-grade systems with real-time inventory, RBAC, OTP auth and multi-language RTL.",
+    tags: ["Laravel", "Filament", "Redis"],
+  },
+  {
+    year: "2024",
+    title: "WE Telecom Training",
+    subtitle: "Full-Stack PHP Laravel",
+    desc: "Hands-on backend specialization with real-world project cycles.",
+    tags: ["PHP 8", "MySQL", "REST"],
+  },
+  {
+    year: "2023",
+    title: "B.Sc. Graduation",
+    subtitle: "Computer & Software Engineering — MUST",
+    desc: "Misr University for Science and Technology. Foundations in CS, software engineering and systems.",
+    tags: ["CS", "Engineering"],
+  },
+  {
+    year: "2023",
+    title: "Blog + Doctor Booking System",
+    subtitle: "Full-stack production projects",
+    desc: "Real-time Pusher notifications, Stripe payments, RBAC, SEO and clean architecture.",
+    tags: ["Laravel", "Stripe", "Pusher"],
+  },
+  {
+    year: "2023",
+    title: "Self-driven mastery",
+    subtitle: "Modern PHP 8 + Front-End — Udemy",
+    desc: "Deep dive into PHP 8 features, OOP patterns, and modern front-end fundamentals.",
+    tags: ["PHP 8", "JS", "CSS"],
+  },
 ];
 
 export function Timeline() {
@@ -38,15 +74,24 @@ export function Timeline() {
                 >
                   <div className={`md:[direction:ltr] ${left ? "md:text-right" : ""}`}>
                     <div className="ml-12 md:ml-0">
-                      <div className={`inline-flex items-center gap-2 rounded-full glass px-3 py-1 ${left ? "md:flex-row-reverse" : ""}`}>
+                      <div
+                        className={`inline-flex items-center gap-2 rounded-full glass px-3 py-1 ${left ? "md:flex-row-reverse" : ""}`}
+                      >
                         <span className="font-mono text-xs text-cyan">{e.year}</span>
                       </div>
                       <h3 className="mt-3 font-display text-2xl font-bold">{e.title}</h3>
                       <p className="font-mono text-xs text-violet">{e.subtitle}</p>
                       <p className="mt-3 text-sm text-muted-foreground">{e.desc}</p>
-                      <div className={`mt-3 flex flex-wrap gap-1.5 ${left ? "md:justify-end" : ""}`}>
+                      <div
+                        className={`mt-3 flex flex-wrap gap-1.5 ${left ? "md:justify-end" : ""}`}
+                      >
                         {e.tags.map((t) => (
-                          <span key={t} className="rounded-full border border-border bg-background/60 px-2 py-0.5 font-mono text-[10px] text-muted-foreground">{t}</span>
+                          <span
+                            key={t}
+                            className="rounded-full border border-border bg-background/60 px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
+                          >
+                            {t}
+                          </span>
                         ))}
                       </div>
                     </div>

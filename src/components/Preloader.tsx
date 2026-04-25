@@ -19,7 +19,10 @@ export function Preloader() {
       setProgress(i);
     }, 80);
     const phraseId = setInterval(() => setCurrent((c) => (c + 1) % phrases.length), 280);
-    return () => { clearInterval(id); clearInterval(phraseId); };
+    return () => {
+      clearInterval(id);
+      clearInterval(phraseId);
+    };
   }, []);
 
   return (
@@ -38,7 +41,8 @@ export function Preloader() {
             </linearGradient>
           </defs>
           <text
-            x="50%" y="58%"
+            x="50%"
+            y="58%"
             textAnchor="middle"
             dominantBaseline="middle"
             fontFamily="Space Grotesk"

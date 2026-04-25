@@ -42,7 +42,12 @@ export const projects: Project[] = [
     year: "2024",
     category: ["Laravel", "Full-Stack"],
     desc: "Real-time point-of-sale with inventory sync, 2FA, PDF receipts and live sales analytics.",
-    features: ["Real-time inventory sync", "2FA via Fortify", "PDF receipt generation", "Sales analytics dashboard"],
+    features: [
+      "Real-time inventory sync",
+      "2FA via Fortify",
+      "PDF receipt generation",
+      "Sales analytics dashboard",
+    ],
     stack: ["Laravel 12", "Filament 4", "Livewire 3", "Tailwind 4", "Fortify", "Vite"],
     repo: "https://github.com/Mohammed-tareq/laravel-pos",
     accent: "cyan",
@@ -53,7 +58,12 @@ export const projects: Project[] = [
     year: "2023",
     category: ["Laravel", "Full-Stack"],
     desc: "SEO-optimized blog with real-time notifications via Pusher, Redis caching and clean RBAC.",
-    features: ["Real-time notifications (Pusher)", "Redis caching", "SEO optimized", "Role-based access"],
+    features: [
+      "Real-time notifications (Pusher)",
+      "Redis caching",
+      "SEO optimized",
+      "Role-based access",
+    ],
     stack: ["Laravel", "MySQL", "Redis", "Bootstrap", "AJAX", "Pusher"],
     repo: "https://github.com/Mohammed-tareq/blog",
     accent: "gold",
@@ -64,7 +74,12 @@ export const projects: Project[] = [
     year: "2023",
     category: ["Laravel", "API"],
     desc: "Appointment booking with separate doctor/patient portals, Stripe payments and advanced search.",
-    features: ["Doctor & patient portals", "Stripe payments", "Search by specialty", "Schedule management"],
+    features: [
+      "Doctor & patient portals",
+      "Stripe payments",
+      "Search by specialty",
+      "Schedule management",
+    ],
     stack: ["Laravel", "MySQL", "Stripe API", "Bootstrap"],
     repo: "https://github.com/Mohammed-tareq/DocCure",
     accent: "violet",
@@ -77,7 +92,9 @@ export function Projects() {
   const [filter, setFilter] = useState<(typeof filters)[number]>("All");
   const [flipped, setFlipped] = useState<string | null>(null);
 
-  const visible = projects.filter((p) => filter === "All" || p.category.includes(filter as Project["category"][number]));
+  const visible = projects.filter(
+    (p) => filter === "All" || p.category.includes(filter as Project["category"][number]),
+  );
 
   return (
     <section id="projects" className="relative scroll-mt-24 py-32">
@@ -86,7 +103,8 @@ export function Projects() {
         <SectionLabel>03 / Selected Work</SectionLabel>
         <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
           <h2 className="max-w-2xl font-display text-4xl font-bold md:text-6xl">
-            Projects that <span className="text-gradient">ship</span> &amp; <span className="text-gradient-gold">scale</span>.
+            Projects that <span className="text-gradient">ship</span> &amp;{" "}
+            <span className="text-gradient-gold">scale</span>.
           </h2>
 
           <div className="flex flex-wrap gap-2">
@@ -126,7 +144,10 @@ export function Projects() {
             className="group inline-flex items-center gap-2 rounded-full border border-border bg-card/40 px-6 py-3 text-sm font-medium transition-all hover:border-cyan hover:text-cyan"
           >
             View all projects on GitHub
-            <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight
+              size={16}
+              className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
           </a>
         </div>
       </div>
@@ -134,11 +155,36 @@ export function Projects() {
   );
 }
 
-function ProjectCard({ p, i, flipped, onFlip }: { p: Project; i: number; flipped: boolean; onFlip: () => void }) {
+function ProjectCard({
+  p,
+  i,
+  flipped,
+  onFlip,
+}: {
+  p: Project;
+  i: number;
+  flipped: boolean;
+  onFlip: () => void;
+}) {
   const accentMap = {
-    violet: { bg: "from-violet/30 to-violet/5", text: "text-violet", border: "border-violet/40", glow: "oklch(0.58 0.25 295 / 50%)" },
-    cyan: { bg: "from-cyan/30 to-cyan/5", text: "text-cyan", border: "border-cyan/40", glow: "oklch(0.85 0.18 200 / 50%)" },
-    gold: { bg: "from-gold/30 to-gold/5", text: "text-gold", border: "border-gold/40", glow: "oklch(0.78 0.16 75 / 50%)" },
+    violet: {
+      bg: "from-violet/30 to-violet/5",
+      text: "text-violet",
+      border: "border-violet/40",
+      glow: "oklch(0.58 0.25 295 / 50%)",
+    },
+    cyan: {
+      bg: "from-cyan/30 to-cyan/5",
+      text: "text-cyan",
+      border: "border-cyan/40",
+      glow: "oklch(0.85 0.18 200 / 50%)",
+    },
+    gold: {
+      bg: "from-gold/30 to-gold/5",
+      text: "text-gold",
+      border: "border-gold/40",
+      glow: "oklch(0.78 0.16 75 / 50%)",
+    },
   }[p.accent];
 
   return (
@@ -152,7 +198,10 @@ function ProjectCard({ p, i, flipped, onFlip }: { p: Project; i: number; flipped
     >
       <div
         className="relative h-full min-h-[320px] w-full transition-transform duration-700"
-        style={{ transformStyle: "preserve-3d", transform: flipped ? "rotateY(180deg)" : "rotateY(0)" }}
+        style={{
+          transformStyle: "preserve-3d",
+          transform: flipped ? "rotateY(180deg)" : "rotateY(0)",
+        }}
       >
         {/* Front */}
         <div
@@ -176,15 +225,22 @@ function ProjectCard({ p, i, flipped, onFlip }: { p: Project; i: number; flipped
                   </span>
                 )}
               </div>
-              <h3 className={`mb-3 font-display font-bold leading-tight ${p.featured ? "text-4xl md:text-5xl" : "text-2xl"}`}>
+              <h3
+                className={`mb-3 font-display font-bold leading-tight ${p.featured ? "text-4xl md:text-5xl" : "text-2xl"}`}
+              >
                 {p.title}
               </h3>
-              <p className={`text-muted-foreground ${p.featured ? "max-w-xl text-base" : "text-sm"}`}>
+              <p
+                className={`text-muted-foreground ${p.featured ? "max-w-xl text-base" : "text-sm"}`}
+              >
                 {p.desc}
               </p>
               <div className="mt-4 flex flex-wrap gap-1.5">
                 {p.stack.slice(0, p.featured ? 7 : 4).map((s) => (
-                  <span key={s} className="rounded-full border border-border bg-background/60 px-2.5 py-0.5 font-mono text-[10px] text-muted-foreground">
+                  <span
+                    key={s}
+                    className="rounded-full border border-border bg-background/60 px-2.5 py-0.5 font-mono text-[10px] text-muted-foreground"
+                  >
                     {s}
                   </span>
                 ))}
@@ -197,7 +253,12 @@ function ProjectCard({ p, i, flipped, onFlip }: { p: Project; i: number; flipped
             </div>
 
             <div className="mt-6 flex items-center gap-3">
-              <a href={p.repo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-xs transition-colors hover:border-cyan hover:text-cyan">
+              <a
+                href={p.repo}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-xs transition-colors hover:border-cyan hover:text-cyan"
+              >
                 <Github size={12} /> Code
               </a>
               <button
@@ -227,13 +288,23 @@ function ProjectCard({ p, i, flipped, onFlip }: { p: Project; i: number; flipped
               ))}
             </ul>
             <div className="mt-auto">
-              <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-cyan">Full stack</p>
+              <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-cyan">
+                Full stack
+              </p>
               <div className="flex flex-wrap gap-1.5">
                 {p.stack.map((s) => (
-                  <span key={s} className="rounded-full bg-background/60 px-2 py-0.5 font-mono text-[10px]">{s}</span>
+                  <span
+                    key={s}
+                    className="rounded-full bg-background/60 px-2 py-0.5 font-mono text-[10px]"
+                  >
+                    {s}
+                  </span>
                 ))}
               </div>
-              <button onClick={onFlip} className="mt-4 font-mono text-[10px] uppercase tracking-wider text-muted-foreground hover:text-cyan">
+              <button
+                onClick={onFlip}
+                className="mt-4 font-mono text-[10px] uppercase tracking-wider text-muted-foreground hover:text-cyan"
+              >
                 ← Back
               </button>
             </div>

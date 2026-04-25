@@ -100,9 +100,8 @@ export function Hero() {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg"
           >
-            I architect enterprise Laravel platforms — from real-time POS systems to
-            multi-language e-commerce — with clean MVC, Repository-Service patterns,
-            and Redis-cached performance.
+            I architect enterprise Laravel platforms — from real-time POS systems to multi-language
+            e-commerce — with clean MVC, Repository-Service patterns, and Redis-cached performance.
           </motion.p>
 
           <motion.div
@@ -136,8 +135,16 @@ export function Hero() {
             className="mt-10 flex items-center gap-4"
           >
             {[
-              { Icon: Github, href: "https://github.com/Mohammed-tareq?tab=repositories", label: "GitHub" },
-              { Icon: Linkedin, href: "https://www.linkedin.com/in/mohammed-t-603177250/", label: "LinkedIn" },
+              {
+                Icon: Github,
+                href: "https://github.com/Mohammed-tareq?tab=repositories",
+                label: "GitHub",
+              },
+              {
+                Icon: Linkedin,
+                href: "https://www.linkedin.com/in/mohammed-t-603177250/",
+                label: "LinkedIn",
+              },
               { Icon: Mail, href: "mailto:mohtareq1999m@gmail.com", label: "Email" },
               { Icon: Phone, href: "tel:+201151410813", label: "Phone" },
             ].map(({ Icon, href, label }) => (
@@ -157,35 +164,68 @@ export function Hero() {
 
         {/* Right 3D scene */}
         <div className="relative h-[480px] lg:h-[580px]">
-          <div ref={sceneRef} className="relative h-full w-full transition-transform duration-200 will-change-transform" style={{ transformStyle: "preserve-3d" }}>
+          <div
+            ref={sceneRef}
+            className="relative h-full w-full transition-transform duration-200 will-change-transform"
+            style={{ transformStyle: "preserve-3d" }}
+          >
             {/* Glow orb */}
             <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-aurora opacity-40 blur-[100px]" />
 
             {/* Rotating ring */}
-            <div className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 animate-spin-slow rounded-full border border-violet/40" style={{ transformStyle: "preserve-3d", transform: "translate(-50%,-50%) rotateX(70deg)" }}>
+            <div
+              className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 animate-spin-slow rounded-full border border-violet/40"
+              style={{
+                transformStyle: "preserve-3d",
+                transform: "translate(-50%,-50%) rotateX(70deg)",
+              }}
+            >
               <div className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rounded-full bg-cyan glow-cyan" />
             </div>
-            <div className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 animate-spin-slow rounded-full border border-cyan/30" style={{ animationDuration: "45s", animationDirection: "reverse", transformStyle: "preserve-3d", transform: "translate(-50%,-50%) rotateX(70deg) rotateZ(30deg)" }}>
+            <div
+              className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 animate-spin-slow rounded-full border border-cyan/30"
+              style={{
+                animationDuration: "45s",
+                animationDirection: "reverse",
+                transformStyle: "preserve-3d",
+                transform: "translate(-50%,-50%) rotateX(70deg) rotateZ(30deg)",
+              }}
+            >
               <div className="absolute -top-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-violet glow-violet" />
             </div>
 
             {/* Central icosahedron-ish shape */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 animate-float" style={{ transformStyle: "preserve-3d" }}>
-              <div className="relative h-48 w-48 animate-spin-slow" style={{ transformStyle: "preserve-3d", animationDuration: "20s" }}>
+            <div
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 animate-float"
+              style={{ transformStyle: "preserve-3d" }}
+            >
+              <div
+                className="relative h-48 w-48 animate-spin-slow"
+                style={{ transformStyle: "preserve-3d", animationDuration: "20s" }}
+              >
                 {[
-                  { rx: 0, ry: 0 }, { rx: 90, ry: 0 }, { rx: 0, ry: 90 },
-                  { rx: 45, ry: 45 }, { rx: -45, ry: 45 }, { rx: 45, ry: -45 },
+                  { rx: 0, ry: 0 },
+                  { rx: 90, ry: 0 },
+                  { rx: 0, ry: 90 },
+                  { rx: 45, ry: 45 },
+                  { rx: -45, ry: 45 },
+                  { rx: 45, ry: -45 },
                 ].map((r, i) => (
                   <div
                     key={i}
                     className="absolute inset-0 rounded-3xl border-2"
                     style={{
                       transform: `rotateX(${r.rx}deg) rotateY(${r.ry}deg)`,
-                      borderColor: i % 2 === 0 ? "oklch(0.85 0.18 200 / 60%)" : "oklch(0.58 0.25 295 / 60%)",
-                      background: i % 2 === 0
-                        ? "linear-gradient(135deg, oklch(0.85 0.18 200 / 10%), transparent)"
-                        : "linear-gradient(135deg, oklch(0.58 0.25 295 / 10%), transparent)",
-                      boxShadow: i % 2 === 0 ? "0 0 30px oklch(0.85 0.18 200 / 30%)" : "0 0 30px oklch(0.58 0.25 295 / 30%)",
+                      borderColor:
+                        i % 2 === 0 ? "oklch(0.85 0.18 200 / 60%)" : "oklch(0.58 0.25 295 / 60%)",
+                      background:
+                        i % 2 === 0
+                          ? "linear-gradient(135deg, oklch(0.85 0.18 200 / 10%), transparent)"
+                          : "linear-gradient(135deg, oklch(0.58 0.25 295 / 10%), transparent)",
+                      boxShadow:
+                        i % 2 === 0
+                          ? "0 0 30px oklch(0.85 0.18 200 / 30%)"
+                          : "0 0 30px oklch(0.58 0.25 295 / 30%)",
                     }}
                   />
                 ))}
@@ -224,7 +264,10 @@ export function Hero() {
       </div>
 
       {/* Scanline */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-cyan/20" style={{ animation: "scanline 8s linear infinite" }} />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-cyan/20"
+        style={{ animation: "scanline 8s linear infinite" }}
+      />
     </section>
   );
 }

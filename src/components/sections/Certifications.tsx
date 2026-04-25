@@ -105,12 +105,40 @@ const certs: Cert[] = [
   },
 ];
 
-const accentByCategory: Record<Cert["category"], { text: string; border: string; bg: string; glow: string }> = {
-  Laravel: { text: "text-violet", border: "border-violet/40", bg: "from-violet/20 to-violet/5", glow: "oklch(0.58 0.25 295 / 40%)" },
-  Backend: { text: "text-cyan", border: "border-cyan/40", bg: "from-cyan/20 to-cyan/5", glow: "oklch(0.85 0.18 200 / 40%)" },
-  Frontend: { text: "text-gold", border: "border-gold/40", bg: "from-gold/20 to-gold/5", glow: "oklch(0.78 0.16 75 / 40%)" },
-  Data: { text: "text-cyan", border: "border-cyan/40", bg: "from-cyan/20 to-cyan/5", glow: "oklch(0.85 0.18 200 / 40%)" },
-  Architecture: { text: "text-gold", border: "border-gold/40", bg: "from-gold/20 to-gold/5", glow: "oklch(0.78 0.16 75 / 40%)" },
+const accentByCategory: Record<
+  Cert["category"],
+  { text: string; border: string; bg: string; glow: string }
+> = {
+  Laravel: {
+    text: "text-violet",
+    border: "border-violet/40",
+    bg: "from-violet/20 to-violet/5",
+    glow: "oklch(0.58 0.25 295 / 40%)",
+  },
+  Backend: {
+    text: "text-cyan",
+    border: "border-cyan/40",
+    bg: "from-cyan/20 to-cyan/5",
+    glow: "oklch(0.85 0.18 200 / 40%)",
+  },
+  Frontend: {
+    text: "text-gold",
+    border: "border-gold/40",
+    bg: "from-gold/20 to-gold/5",
+    glow: "oklch(0.78 0.16 75 / 40%)",
+  },
+  Data: {
+    text: "text-cyan",
+    border: "border-cyan/40",
+    bg: "from-cyan/20 to-cyan/5",
+    glow: "oklch(0.85 0.18 200 / 40%)",
+  },
+  Architecture: {
+    text: "text-gold",
+    border: "border-gold/40",
+    bg: "from-gold/20 to-gold/5",
+    glow: "oklch(0.78 0.16 75 / 40%)",
+  },
 };
 
 export function Certifications() {
@@ -124,16 +152,21 @@ export function Certifications() {
 
         <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
           <h2 className="max-w-2xl font-display text-4xl font-bold md:text-6xl">
-            Always <span className="text-gradient">learning</span>, always <span className="text-gradient-gold">building</span>.
+            Always <span className="text-gradient">learning</span>, always{" "}
+            <span className="text-gradient-gold">building</span>.
           </h2>
           <div className="flex gap-4 font-mono text-sm">
             <div className="rounded-2xl border border-border bg-card/40 px-4 py-3">
               <div className="text-2xl font-bold text-cyan">{certs.length}</div>
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">Certificates</div>
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">
+                Certificates
+              </div>
             </div>
             <div className="rounded-2xl border border-border bg-card/40 px-4 py-3">
               <div className="text-2xl font-bold text-violet">{totalHours}h</div>
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">Total hours</div>
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">
+                Total hours
+              </div>
             </div>
           </div>
         </div>
@@ -161,10 +194,14 @@ export function Certifications() {
 
                 <div className="relative flex h-full flex-col">
                   <div className="mb-4 flex items-center justify-between">
-                    <div className={`flex h-10 w-10 items-center justify-center rounded-xl border ${accent.border} bg-background/40 ${accent.text}`}>
+                    <div
+                      className={`flex h-10 w-10 items-center justify-center rounded-xl border ${accent.border} bg-background/40 ${accent.text}`}
+                    >
                       <Award size={18} />
                     </div>
-                    <span className={`rounded-full border ${accent.border} bg-background/40 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider ${accent.text}`}>
+                    <span
+                      className={`rounded-full border ${accent.border} bg-background/40 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider ${accent.text}`}
+                    >
                       {c.category}
                     </span>
                   </div>
@@ -183,7 +220,10 @@ export function Certifications() {
                         <Clock size={10} /> {c.hours}
                       </span>
                     </div>
-                    <ExternalLink size={14} className={`${accent.text} opacity-0 transition-opacity group-hover:opacity-100`} />
+                    <ExternalLink
+                      size={14}
+                      className={`${accent.text} opacity-0 transition-opacity group-hover:opacity-100`}
+                    />
                   </div>
                 </div>
               </motion.a>

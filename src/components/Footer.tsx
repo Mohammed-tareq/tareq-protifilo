@@ -18,12 +18,30 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="mb-4 font-display text-sm uppercase tracking-widest text-cyan">Navigate</h4>
+          <h4 className="mb-4 font-display text-sm uppercase tracking-widest text-cyan">
+            Navigate
+          </h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><a href="#about" className="hover:text-foreground">About</a></li>
-            <li><a href="#skills" className="hover:text-foreground">Skills</a></li>
-            <li><a href="#projects" className="hover:text-foreground">Projects</a></li>
-            <li><Link to="/download" className="hover:text-foreground">Resume</Link></li>
+            <li>
+              <a href="#about" className="hover:text-foreground">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#skills" className="hover:text-foreground">
+                Skills
+              </a>
+            </li>
+            <li>
+              <a href="#projects" className="hover:text-foreground">
+                Projects
+              </a>
+            </li>
+            <li>
+              <Link to="/download" className="hover:text-foreground">
+                Resume
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -46,16 +64,15 @@ export function Footer() {
               </a>
             ))}
           </div>
-          <p className="mt-4 font-mono text-xs text-muted-foreground">
-            mohtareq1999m@gmail.com
-          </p>
+          <p className="mt-4 font-mono text-xs text-muted-foreground">mohtareq1999m@gmail.com</p>
         </div>
       </div>
 
       <div className="border-t border-border/30">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 sm:flex-row">
           <p className="font-mono text-xs text-muted-foreground">
-            © 2025 Mohammed Tareq — Built with <span className="text-destructive">❤</span> &amp; <span className="text-cyan">Laravel</span> spirit
+            © 2025 Mohammed Tareq — Built with <span className="text-destructive">❤</span> &amp;{" "}
+            <span className="text-cyan">Laravel</span> spirit
           </p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
