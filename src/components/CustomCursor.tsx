@@ -10,11 +10,14 @@ export function CustomCursor() {
     if (typeof window === "undefined") return;
     if (window.matchMedia("(max-width: 768px)").matches) return;
 
-    let mouseX = 0, mouseY = 0;
-    let ringX = 0, ringY = 0;
+    let mouseX = 0,
+      mouseY = 0;
+    let ringX = 0,
+      ringY = 0;
 
     const move = (e: MouseEvent) => {
-      mouseX = e.clientX; mouseY = e.clientY;
+      mouseX = e.clientX;
+      mouseY = e.clientY;
       if (dotRef.current) {
         dotRef.current.style.transform = `translate3d(${mouseX - 4}px, ${mouseY - 4}px, 0)`;
       }
@@ -67,7 +70,8 @@ export function CustomCursor() {
           borderColor: hovering ? "oklch(0.85 0.18 200)" : "oklch(0.58 0.25 295 / 80%)",
           background: hovering ? "oklch(0.85 0.18 200 / 10%)" : "transparent",
           opacity: hidden ? 0 : 1,
-          transition: "width 0.25s, height 0.25s, border-color 0.25s, background 0.25s, opacity 0.2s",
+          transition:
+            "width 0.25s, height 0.25s, border-color 0.25s, background 0.25s, opacity 0.2s",
           mixBlendMode: "screen",
         }}
       />

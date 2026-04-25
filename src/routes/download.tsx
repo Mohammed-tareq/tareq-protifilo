@@ -1,6 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, Eye, Link as LinkIcon, ArrowLeft, FileText, Calendar, Briefcase, X } from "lucide-react";
+import {
+  Download,
+  Eye,
+  Link as LinkIcon,
+  ArrowLeft,
+  FileText,
+  Calendar,
+  Briefcase,
+  X,
+} from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { ParticleField } from "@/components/ParticleField";
@@ -14,9 +23,16 @@ export const Route = createFileRoute("/download")({
   head: () => ({
     meta: [
       { title: "Resume — Mohammed Tareq" },
-      { name: "description", content: "Download Mohammed Tareq's CV — Laravel Developer & Full-Stack Engineer based in Cairo." },
+      {
+        name: "description",
+        content:
+          "Download Mohammed Tareq's CV — Laravel Developer & Full-Stack Engineer based in Cairo.",
+      },
       { property: "og:title", content: "Resume — Mohammed Tareq" },
-      { property: "og:description", content: "Get the CV: 2+ years of Laravel & full-stack experience." },
+      {
+        property: "og:description",
+        content: "Get the CV: 2+ years of Laravel & full-stack experience.",
+      },
     ],
   }),
   component: DownloadPage,
@@ -85,18 +101,38 @@ function DownloadPage() {
       <Confetti show={confetti} />
 
       <div className="relative mx-auto max-w-6xl px-6 py-12">
-        <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="text-center font-mono text-xs uppercase tracking-[0.3em] text-cyan">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center font-mono text-xs uppercase tracking-[0.3em] text-cyan"
+        >
           // Curriculum Vitae
         </motion.p>
-        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mt-4 text-center font-display text-5xl font-bold leading-tight md:text-7xl">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="mt-4 text-center font-display text-5xl font-bold leading-tight md:text-7xl"
+        >
           My <span className="text-gradient">Resume</span>
         </motion.h1>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
-          A complete overview of my skills, projects and experience as a Laravel & Full-Stack engineer.
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="mx-auto mt-4 max-w-xl text-center text-muted-foreground"
+        >
+          A complete overview of my skills, projects and experience as a Laravel & Full-Stack
+          engineer.
         </motion.p>
 
         {/* Stats */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }} className="mx-auto mt-10 grid max-w-3xl grid-cols-3 gap-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="mx-auto mt-10 grid max-w-3xl grid-cols-3 gap-4"
+        >
           {[
             { Icon: Calendar, l: "Last Updated", v: "2025" },
             { Icon: Briefcase, l: "Experience", v: "2+ Years" },
@@ -105,7 +141,9 @@ function DownloadPage() {
             <div key={s.l} className="rounded-2xl border border-border bg-card/40 p-4 text-center">
               <s.Icon className="mx-auto mb-2 text-cyan" size={18} />
               <div className="font-display text-xl font-bold">{s.v}</div>
-              <div className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">{s.l}</div>
+              <div className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                {s.l}
+              </div>
             </div>
           ))}
         </motion.div>
@@ -132,25 +170,39 @@ function DownloadPage() {
                 </div>
                 <div className="mt-4 space-y-2">
                   {Array.from({ length: 14 }).map((_, i) => (
-                    <div key={i} className="h-1.5 rounded bg-border" style={{ width: `${50 + (i % 5) * 10}%` }} />
+                    <div
+                      key={i}
+                      className="h-1.5 rounded bg-border"
+                      style={{ width: `${50 + (i % 5) * 10}%` }}
+                    />
                   ))}
                 </div>
                 <div className="mt-4 grid grid-cols-2 gap-1">
                   {["Laravel", "Livewire", "Filament", "Redis", "MySQL", "PHP 8"].map((t) => (
-                    <span key={t} className="rounded bg-aurora/20 px-1.5 py-0.5 font-mono text-[8px] text-cyan">{t}</span>
+                    <span
+                      key={t}
+                      className="rounded bg-aurora/20 px-1.5 py-0.5 font-mono text-[8px] text-cyan"
+                    >
+                      {t}
+                    </span>
                   ))}
                 </div>
               </div>
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             <p className="font-mono text-xs uppercase tracking-widest text-cyan">// Get the file</p>
             <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl">
               Ready when you are.
             </h2>
             <p className="mt-3 text-muted-foreground">
-              The PDF includes my full project breakdowns, technical stack, training history and contact details.
+              The PDF includes my full project breakdowns, technical stack, training history and
+              contact details.
             </p>
 
             <div className="mt-8 space-y-3">
@@ -172,13 +224,19 @@ function DownloadPage() {
                 >
                   <Eye size={16} /> View Online
                 </button>
-                <button onClick={copyLink} className="flex flex-1 items-center justify-center gap-2 rounded-2xl border border-border bg-card/40 px-5 py-3 text-sm transition-colors hover:border-cyan hover:text-cyan">
+                <button
+                  onClick={copyLink}
+                  className="flex flex-1 items-center justify-center gap-2 rounded-2xl border border-border bg-card/40 px-5 py-3 text-sm transition-colors hover:border-cyan hover:text-cyan"
+                >
                   <LinkIcon size={16} /> Copy Link
                 </button>
               </div>
             </div>
 
-            <Link to="/" className="mt-8 inline-flex items-center gap-2 font-mono text-xs text-muted-foreground hover:text-cyan">
+            <Link
+              to="/"
+              className="mt-8 inline-flex items-center gap-2 font-mono text-xs text-muted-foreground hover:text-cyan"
+            >
               <ArrowLeft size={14} /> Back to Portfolio
             </Link>
           </motion.div>

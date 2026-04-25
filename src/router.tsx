@@ -40,7 +40,12 @@ function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => vo
             <span className="text-cyan">67%</span>
           </div>
           <div className="h-1.5 overflow-hidden rounded-full bg-border">
-            <div className="h-full w-2/3 animate-pulse rounded-full" style={{ background: "linear-gradient(90deg, oklch(0.78 0.16 75), oklch(0.6 0.24 25))" }} />
+            <div
+              className="h-full w-2/3 animate-pulse rounded-full"
+              style={{
+                background: "linear-gradient(90deg, oklch(0.78 0.16 75), oklch(0.6 0.24 25))",
+              }}
+            />
           </div>
         </div>
 
@@ -52,12 +57,18 @@ function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => vo
 
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <button
-            onClick={() => { router.invalidate(); reset(); }}
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
             className="btn-shine inline-flex items-center gap-2 rounded-full bg-aurora px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-105"
           >
             <RefreshCw size={16} /> Try again
           </button>
-          <Link to="/" className="inline-flex items-center gap-2 rounded-full border border-border bg-card/40 px-6 py-3 text-sm transition-colors hover:border-cyan hover:text-cyan">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-card/40 px-6 py-3 text-sm transition-colors hover:border-cyan hover:text-cyan"
+          >
             <Home size={16} /> Go home
           </Link>
         </div>

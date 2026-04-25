@@ -66,7 +66,8 @@ export function Skills() {
       <div className="relative mx-auto max-w-7xl px-6">
         <SectionLabel>02 / Skills</SectionLabel>
         <h2 className="mb-12 max-w-3xl font-display text-4xl font-bold md:text-6xl">
-          Tools I use to <span className="text-gradient">build</span> &amp; <span className="text-gradient-gold">ship</span>.
+          Tools I use to <span className="text-gradient">build</span> &amp;{" "}
+          <span className="text-gradient-gold">ship</span>.
         </h2>
 
         {/* Tabs */}

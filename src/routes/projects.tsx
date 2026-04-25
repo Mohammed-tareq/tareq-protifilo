@@ -9,9 +9,16 @@ export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
       { title: "Projects — Mohammed Tareq" },
-      { name: "description", content: "A detailed look at production Laravel platforms, POS systems and full-stack builds by Mohammed Tareq." },
+      {
+        name: "description",
+        content:
+          "A detailed look at production Laravel platforms, POS systems and full-stack builds by Mohammed Tareq.",
+      },
       { property: "og:title", content: "Projects — Mohammed Tareq" },
-      { property: "og:description", content: "E-Commerce, POS, Blog and Doctor Booking — full architecture details." },
+      {
+        property: "og:description",
+        content: "E-Commerce, POS, Blog and Doctor Booking — full architecture details.",
+      },
     ],
   }),
   component: ProjectsPage,
@@ -25,7 +32,7 @@ function ProjectsPage() {
   const allTech = ["All", ...Array.from(new Set(projects.flatMap((p) => p.stack)))].slice(0, 12);
 
   const filtered = projects.filter(
-    (p) => (year === "All" || p.year === year) && (tech === "All" || p.stack.includes(tech))
+    (p) => (year === "All" || p.year === year) && (tech === "All" || p.stack.includes(tech)),
   );
 
   return (
@@ -35,13 +42,27 @@ function ProjectsPage() {
         <div className="absolute inset-0 bg-mesh opacity-60" />
         <ParticleField density={50} />
         <div className="relative mx-auto max-w-7xl px-6 text-center">
-          <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-cyan">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-cyan"
+          >
             // Portfolio archive
           </motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="font-display text-5xl font-bold leading-tight md:text-7xl">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="font-display text-5xl font-bold leading-tight md:text-7xl"
+          >
             All <span className="text-gradient">Projects</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="mx-auto mt-4 max-w-xl text-muted-foreground">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="mx-auto mt-4 max-w-xl text-muted-foreground"
+          >
             From enterprise e-commerce to real-time POS — architecture, decisions and stack details.
           </motion.p>
         </div>
@@ -50,7 +71,13 @@ function ProjectsPage() {
       <section className="mx-auto max-w-7xl px-6 py-16">
         {/* Filters */}
         <div className="mb-12 grid gap-6 rounded-2xl border border-border bg-card/40 p-6 md:grid-cols-2">
-          <FilterRow label="Year" Icon={Calendar} options={allYears} value={year} onChange={setYear} />
+          <FilterRow
+            label="Year"
+            Icon={Calendar}
+            options={allYears}
+            value={year}
+            onChange={setYear}
+          />
           <FilterRow label="Tech" Icon={Layers} options={allTech} value={tech} onChange={setTech} />
         </div>
 
@@ -70,7 +97,19 @@ function ProjectsPage() {
   );
 }
 
-function FilterRow({ label, Icon, options, value, onChange }: { label: string; Icon: React.ComponentType<{ size?: number }>; options: string[]; value: string; onChange: (v: string) => void }) {
+function FilterRow({
+  label,
+  Icon,
+  options,
+  value,
+  onChange,
+}: {
+  label: string;
+  Icon: React.ComponentType<{ size?: number }>;
+  options: string[];
+  value: string;
+  onChange: (v: string) => void;
+}) {
   return (
     <div>
       <div className="mb-3 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-cyan">
@@ -82,7 +121,9 @@ function FilterRow({ label, Icon, options, value, onChange }: { label: string; I
             key={o}
             onClick={() => onChange(o)}
             className={`rounded-full border px-3 py-1 text-xs transition-all ${
-              value === o ? "border-cyan bg-cyan/10 text-cyan" : "border-border text-muted-foreground hover:border-cyan/50"
+              value === o
+                ? "border-cyan bg-cyan/10 text-cyan"
+                : "border-border text-muted-foreground hover:border-cyan/50"
             }`}
           >
             {o}
@@ -106,14 +147,26 @@ function DetailCard({ p, i }: { p: Project; i: number }) {
       <div className="relative grid gap-8 lg:grid-cols-[1fr_2fr]">
         <div>
           <p className="font-mono text-xs text-cyan">{p.year}</p>
-          <h2 className="mt-2 font-display text-3xl font-bold leading-tight md:text-4xl">{p.title}</h2>
+          <h2 className="mt-2 font-display text-3xl font-bold leading-tight md:text-4xl">
+            {p.title}
+          </h2>
           <div className="mt-3 flex flex-wrap gap-1.5">
             {p.category.map((c) => (
-              <span key={c} className="rounded-full border border-border bg-background/50 px-2 py-0.5 font-mono text-[10px] text-muted-foreground">{c}</span>
+              <span
+                key={c}
+                className="rounded-full border border-border bg-background/50 px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
+              >
+                {c}
+              </span>
             ))}
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
-            <a href={p.repo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-xs hover:border-cyan hover:text-cyan">
+            <a
+              href={p.repo}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-xs hover:border-cyan hover:text-cyan"
+            >
               <Github size={12} /> Code
             </a>
           </div>
@@ -122,7 +175,9 @@ function DetailCard({ p, i }: { p: Project; i: number }) {
         <div>
           <p className="leading-relaxed text-muted-foreground">{p.desc}</p>
 
-          <h3 className="mt-6 mb-3 font-mono text-[10px] uppercase tracking-widest text-cyan">Key features</h3>
+          <h3 className="mt-6 mb-3 font-mono text-[10px] uppercase tracking-widest text-cyan">
+            Key features
+          </h3>
           <ul className="grid gap-2 sm:grid-cols-2">
             {p.features.map((f) => (
               <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -132,10 +187,17 @@ function DetailCard({ p, i }: { p: Project; i: number }) {
             ))}
           </ul>
 
-          <h3 className="mt-6 mb-3 font-mono text-[10px] uppercase tracking-widest text-cyan">Stack</h3>
+          <h3 className="mt-6 mb-3 font-mono text-[10px] uppercase tracking-widest text-cyan">
+            Stack
+          </h3>
           <div className="flex flex-wrap gap-1.5">
             {p.stack.map((s) => (
-              <span key={s} className="rounded-full border border-border bg-background/60 px-2.5 py-1 font-mono text-[11px] text-foreground/90">{s}</span>
+              <span
+                key={s}
+                className="rounded-full border border-border bg-background/60 px-2.5 py-1 font-mono text-[11px] text-foreground/90"
+              >
+                {s}
+              </span>
             ))}
           </div>
         </div>

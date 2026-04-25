@@ -22,7 +22,12 @@ export function Contact() {
   };
 
   const cards = [
-    { Icon: Mail, label: "Email", value: "mohtareq1999m@gmail.com", href: "mailto:mohtareq1999m@gmail.com" },
+    {
+      Icon: Mail,
+      label: "Email",
+      value: "mohtareq1999m@gmail.com",
+      href: "mailto:mohtareq1999m@gmail.com",
+    },
     { Icon: Phone, label: "Phone", value: "+20 115 141 0813", href: "tel:+201151410813" },
     { Icon: MapPin, label: "Location", value: "Cairo, Egypt", href: "#" },
   ];
@@ -51,7 +56,9 @@ export function Contact() {
                   <Icon size={20} />
                 </div>
                 <div className="min-w-0">
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{label}</p>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                    {label}
+                  </p>
                   <p className="truncate font-display text-base">{value}</p>
                 </div>
               </motion.a>
@@ -59,7 +66,8 @@ export function Contact() {
 
             <div className="rounded-2xl border border-border bg-card/40 p-6">
               <p className="font-mono text-xs text-muted-foreground">
-                <span className="text-cyan">$</span> status: <span className="text-gold">open to opportunities</span>
+                <span className="text-cyan">$</span> status:{" "}
+                <span className="text-gold">open to opportunities</span>
               </p>
               <p className="mt-2 text-sm text-muted-foreground">
                 I respond within 24 hours. Coffee in Cairo or async on Slack — both work.
@@ -79,18 +87,46 @@ export function Contact() {
             <div className="pointer-events-none absolute -bottom-20 -left-20 h-60 w-60 rounded-full bg-cyan/20 blur-[80px]" />
 
             <div className="relative space-y-5">
-              <FloatingInput label="Your name" value={form.name} onChange={(v) => setForm({ ...form, name: v })} required />
-              <FloatingInput label="Email address" type="email" value={form.email} onChange={(v) => setForm({ ...form, email: v })} required />
-              <FloatingTextarea label="Tell me about your project" value={form.message} onChange={(v) => setForm({ ...form, message: v })} required />
+              <FloatingInput
+                label="Your name"
+                value={form.name}
+                onChange={(v) => setForm({ ...form, name: v })}
+                required
+              />
+              <FloatingInput
+                label="Email address"
+                type="email"
+                value={form.email}
+                onChange={(v) => setForm({ ...form, email: v })}
+                required
+              />
+              <FloatingTextarea
+                label="Tell me about your project"
+                value={form.message}
+                onChange={(v) => setForm({ ...form, message: v })}
+                required
+              />
 
               <button
                 type="submit"
                 disabled={state !== "idle"}
                 className="btn-shine relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-aurora px-7 py-4 font-medium text-background transition-transform hover:scale-[1.02] disabled:opacity-90"
               >
-                {state === "idle" && (<><Send size={16} /> Send Message</>)}
-                {state === "loading" && (<><Loader2 size={16} className="animate-spin" /> Sending...</>)}
-                {state === "success" && (<><Check size={16} /> Message sent!</>)}
+                {state === "idle" && (
+                  <>
+                    <Send size={16} /> Send Message
+                  </>
+                )}
+                {state === "loading" && (
+                  <>
+                    <Loader2 size={16} className="animate-spin" /> Sending...
+                  </>
+                )}
+                {state === "success" && (
+                  <>
+                    <Check size={16} /> Message sent!
+                  </>
+                )}
               </button>
             </div>
           </motion.form>
@@ -100,7 +136,19 @@ export function Contact() {
   );
 }
 
-function FloatingInput({ label, value, onChange, type = "text", required }: { label: string; value: string; onChange: (v: string) => void; type?: string; required?: boolean }) {
+function FloatingInput({
+  label,
+  value,
+  onChange,
+  type = "text",
+  required,
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  type?: string;
+  required?: boolean;
+}) {
   return (
     <div className="relative">
       <input
@@ -118,7 +166,17 @@ function FloatingInput({ label, value, onChange, type = "text", required }: { la
   );
 }
 
-function FloatingTextarea({ label, value, onChange, required }: { label: string; value: string; onChange: (v: string) => void; required?: boolean }) {
+function FloatingTextarea({
+  label,
+  value,
+  onChange,
+  required,
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  required?: boolean;
+}) {
   return (
     <div className="relative">
       <textarea

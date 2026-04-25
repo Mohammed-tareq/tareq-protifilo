@@ -21,7 +21,9 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => { setOpen(false); }, [loc.pathname]);
+  useEffect(() => {
+    setOpen(false);
+  }, [loc.pathname]);
 
   return (
     <>
@@ -34,7 +36,9 @@ export function Navbar() {
           className={`mx-auto flex max-w-7xl items-center justify-between px-6 transition-all duration-500 ${
             scrolled ? "glass-strong rounded-2xl py-3" : "py-2"
           }`}
-          style={scrolled ? { marginInline: "auto", maxWidth: "min(1200px, calc(100% - 24px))" } : {}}
+          style={
+            scrolled ? { marginInline: "auto", maxWidth: "min(1200px, calc(100% - 24px))" } : {}
+          }
         >
           <Link to="/" className="group relative flex items-center gap-2">
             <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-aurora font-display text-sm font-bold text-background animate-gradient">

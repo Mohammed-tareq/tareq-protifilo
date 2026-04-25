@@ -4,7 +4,15 @@ import { Code2, Zap, Layers, Rocket } from "lucide-react";
 import portrait from "@/assets/mohammed-tareq-anime.jpg";
 import portraitVideo from "@/assets/mohammed-tareq.mp4";
 
-function Counter({ end, suffix = "", duration = 1500 }: { end: number; suffix?: string; duration?: number }) {
+function Counter({
+  end,
+  suffix = "",
+  duration = 1500,
+}: {
+  end: number;
+  suffix?: string;
+  duration?: number;
+}) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true });
   const [val, setVal] = useState(0);
@@ -22,14 +30,35 @@ function Counter({ end, suffix = "", duration = 1500 }: { end: number; suffix?: 
     return () => cancelAnimationFrame(raf);
   }, [inView, end, duration]);
 
-  return <span ref={ref}>{val}{suffix}</span>;
+  return (
+    <span ref={ref}>
+      {val}
+      {suffix}
+    </span>
+  );
 }
 
 const values = [
-  { Icon: Code2, title: "Clean Architecture", desc: "Repository-Service pattern, SOLID, MVC done right." },
-  { Icon: Zap, title: "Performance First", desc: "Redis caching, query optimization, server-side DataTables." },
-  { Icon: Layers, title: "Full-Stack Reach", desc: "From DB schema to reactive UI with Livewire & Alpine." },
-  { Icon: Rocket, title: "Production Ready", desc: "RBAC, OTP auth, multi-language, RTL — shipped, not theorized." },
+  {
+    Icon: Code2,
+    title: "Clean Architecture",
+    desc: "Repository-Service pattern, SOLID, MVC done right.",
+  },
+  {
+    Icon: Zap,
+    title: "Performance First",
+    desc: "Redis caching, query optimization, server-side DataTables.",
+  },
+  {
+    Icon: Layers,
+    title: "Full-Stack Reach",
+    desc: "From DB schema to reactive UI with Livewire & Alpine.",
+  },
+  {
+    Icon: Rocket,
+    title: "Production Ready",
+    desc: "RBAC, OTP auth, multi-language, RTL — shipped, not theorized.",
+  },
 ];
 
 export function About() {
@@ -46,8 +75,8 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="mb-16 max-w-3xl font-display text-4xl font-bold leading-tight md:text-6xl"
         >
-          A backend engineer who <span className="text-gradient">obsesses</span> over
-          architecture &amp; <span className="text-gradient-gold">user experience</span>.
+          A backend engineer who <span className="text-gradient">obsesses</span> over architecture
+          &amp; <span className="text-gradient-gold">user experience</span>.
         </motion.h2>
 
         <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
@@ -94,7 +123,9 @@ export function About() {
                   <div className="font-display text-2xl font-bold text-gradient">
                     <Counter end={s.n} suffix={s.s} />
                   </div>
-                  <div className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">{s.l}</div>
+                  <div className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                    {s.l}
+                  </div>
                 </div>
               ))}
             </div>
@@ -107,10 +138,10 @@ export function About() {
             transition={{ duration: 0.7 }}
           >
             <p className="text-lg leading-relaxed text-muted-foreground">
-              I'm <span className="text-foreground">Mohammed Tareq</span>, a Computer &amp; Software Engineering
-              graduate from MUST (2023). I build production Laravel systems that scale —
-              from enterprise e-commerce platforms with multi-language RTL support to real-time
-              POS systems with 2FA and PDF generation.
+              I'm <span className="text-foreground">Mohammed Tareq</span>, a Computer &amp; Software
+              Engineering graduate from MUST (2023). I build production Laravel systems that scale —
+              from enterprise e-commerce platforms with multi-language RTL support to real-time POS
+              systems with 2FA and PDF generation.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               My toolbox: <span className="font-mono text-cyan">Laravel 12</span>,{" "}
